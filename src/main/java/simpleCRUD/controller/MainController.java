@@ -33,24 +33,24 @@ public class MainController {
 	}
 	@GetMapping(path="/student/{id}")
 	public @ResponseBody Student getStudent(
-			@PathVariable Long id) {
+			@PathVariable long id) {
 		return studentServices.getStudent(id);
 	}
 	@PutMapping(path="/student/{id}")
 	public @ResponseBody Student updateStudent(
-			@PathVariable Long id, 
+			@PathVariable long id, 
 			@RequestParam String firstName) {
 		studentServices.updateStudent(id, firstName);
 		return studentServices.getStudent(id);
 	}
 	@DeleteMapping(path="/student/{id}")
-	public String deleteStudent(
-			@PathVariable Long id) {
-		studentServices.deleteStudent(id);
-		return "Successfully delete a student with id: " + id;
+	public @ResponseBody String deleteStudent(
+			@PathVariable long id) {
+		String name = studentServices.deleteStudent(id);
+		return "Successfully delete a student with name: " + name;
 	}
 	@DeleteMapping(path="/student")
-	public String deleteAllStudent() {
+	public @ResponseBody String deleteAllStudent() {
 		studentServices.deleteAllStudent();
 		return "Successfully delete all student";
 	}

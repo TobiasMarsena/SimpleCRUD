@@ -37,11 +37,13 @@ public class StudentServices {
 		studentRepository.save(existingStudent.get());
 		return existingStudent.get().getId();
 	}
-	public void deleteStudent(long id) {
+	public String deleteStudent(long id) {
 		if (studentRepository.existsById(id)) {
+			String name = studentRepository.findById(id).get().getFirstName();
 			studentRepository.delete(studentRepository.findById(id).get());
+			return name;
 		} else {
-			// No such Student exist
+			return "Student not Found";
 		}
 	}
 	public void deleteAllStudent() {
