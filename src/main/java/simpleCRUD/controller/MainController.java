@@ -2,6 +2,7 @@ package simpleCRUD.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,6 +42,17 @@ public class MainController {
 			@RequestParam String firstName) {
 		studentServices.updateStudent(id, firstName);
 		return studentServices.getStudent(id);
+	}
+	@DeleteMapping(path="/student/{id}")
+	public String deleteStudent(
+			@PathVariable Long id) {
+		studentServices.deleteStudent(id);
+		return "Successfully delete a student with id: " + id;
+	}
+	@DeleteMapping(path="/student")
+	public String deleteAllStudent() {
+		studentServices.deleteAllStudent();
+		return "Successfully delete all student";
 	}
 	
 	
