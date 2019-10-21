@@ -14,7 +14,9 @@ import simpleCRUD.entity.Student;
 public class StudentController {
 
 	@GetMapping
-	public String helloStudent(@RequestParam("id") long id, Model model) {
+	public String helloStudent(
+			@RequestParam("id") long id, Model model) {
+		
 		RestTemplate restTemplate = new RestTemplate();
 		Student student = restTemplate.getForObject("http://localhost:8080/api/student/"+id, Student.class);
 		model.addAttribute("name", student.getFirstName());
