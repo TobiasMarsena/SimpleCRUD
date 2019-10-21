@@ -6,10 +6,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import simpleCRUD.entity.Student;
+import simpleCRUD.entity.Teacher;
 
 @Repository
-public interface StudentRepository extends CrudRepository<Student, Long> {
+public interface TeacherRepository extends CrudRepository<Teacher, Long> {
 
-	List<Student> findByFirstName(@Param("firstName") String firstName);
+	List<Teacher> findByName(@Param("name") String name);
 }

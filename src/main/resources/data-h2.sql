@@ -8,3 +8,11 @@ INSERT INTO students(first_name) VALUES
 	('Fauzi'),
 	('Dante'),
 	('Andre');
+INSERT INTO teachers(name) VALUES
+	('Angelia'),
+	('Steva'),
+	('Yessy'),
+	('Veni'),
+	('Sandra'),
+	('Irah'),
+	('Neni');
