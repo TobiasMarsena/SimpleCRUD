@@ -20,7 +20,7 @@ public class TeacherController {
 		RestTemplate restTemplate = new RestTemplate();
 		Teacher teacher = restTemplate.getForObject("http://localhost:8080/api/teacher/" + id, Teacher.class);
 		model.addAttribute("name", teacher.getName());
-		return "student";
+		return "teacher";
 		
 	}
 }
