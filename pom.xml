@@ -53,10 +53,10 @@
 			<scope>runtime</scope>
 		</dependency>
 		<!-- MariaDB -->
-<!-- 		<dependency>
+ 		<dependency>
 	      <groupId>org.mariadb.jdbc</groupId>
 	      <artifactId>mariadb-java-client</artifactId>
-	      </dependency> -->
+	      </dependency>
 		<!-- Test dependency -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
