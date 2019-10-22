@@ -1,4 +1,4 @@
-INSERT INTO students(first_name) VALUES 
+INSERT INTO students (first_name) VALUES 
 	('Tobias'),
 	('Gondo'),
 	('Alan'),
@@ -8,7 +8,7 @@ INSERT INTO students(first_name) VALUES
 	('Fauzi'),
 	('Dante'),
 	('Andre');
-INSERT INTO teachers(name) VALUES
+INSERT INTO teachers (name) VALUES
 	('Angelia'),
 	('Steva'),
 	('Yessy'),
