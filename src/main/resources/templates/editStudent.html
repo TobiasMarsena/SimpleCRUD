@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Edit Student</title>
+</head>
+<body>
+  <form action="#" th:action="@{/api/student/{id}(id=${student.id})}" th:object="${student}" method="POST">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{firstName}" id="name" placeholder="${student.firstName}">
+	<input name="_method" type="hidden" value="PUT">
+    <input type="submit" value="Edit Student">   
+</form>
+</body>
+</html>
