@@ -41,4 +41,9 @@ public class StudentController {
 		model.addAttribute("student", studentServices.getStudent(id));
 		return "deleteWarning";
 	}
+	@GetMapping(path = "/signup")
+	public String createStudent(Model model) {
+		model.addAttribute("student", new Student());
+		return "createStudent";
+	}
 }

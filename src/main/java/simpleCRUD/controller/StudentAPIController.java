@@ -26,10 +26,10 @@ public class StudentAPIController {
 		return studentServices.getAllStudent();
 	}
 	@PostMapping(path="/student")
-	public @ResponseBody Student createStudent(
+	public String createStudent(
 			@RequestParam String firstName) {
-		long id = studentServices.createStudent(firstName);
-		return studentServices.getStudent(id);
+		studentServices.createStudent(firstName);
+		return "redirect:/";
 	}
 	@GetMapping(path="/student/{id}")
 	public @ResponseBody Student getStudent(
