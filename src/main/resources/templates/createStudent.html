@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
 <title>Create Student</title>
 </head>
 <body>
 	<h1>Create Student</h1>
 	<form action="#" th:action="@{/api/student/}" th:object="${student}" method="post">
 	    <label for="name">Name</label>
-	    <input type="text" th:field="*{firstName}" id="name">
-	    <input type="submit" value="Create Student">   
+	    <input type="text" th:field="*{firstName}" id="name"></input>
+	    <input type="submit" value="Create Student"></input>
 	</form>
 </body>
 </html>

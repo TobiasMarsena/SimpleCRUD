@@ -12,4 +12,5 @@ import simpleCRUD.entity.Student;
 public interface StudentRepository extends CrudRepository<Student, Long> {
 
 	List<Student> findByFirstName(@Param("firstName") String firstName);
+	
 }
