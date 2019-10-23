@@ -1,4 +1,4 @@
-package simpleCRUD.controller;
+package main.java.simpleCRUD.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import simpleCRUD.entity.Student;
-import simpleCRUD.service.StudentServices;
+
+import main.java.simpleCRUD.entity.Student;
+import main.java.simpleCRUD.service.StudentServices;
 
 @Controller
 @RequestMapping(path = "/api")
