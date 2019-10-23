@@ -3,5 +3,7 @@ A simple CRUD project with Spring Framework using Apache Tomcat as Web Server an
 
 # Features
 Display a list of Students' name. 
+
 Edit or Delete each Student. 
+
 Add a new Student.
