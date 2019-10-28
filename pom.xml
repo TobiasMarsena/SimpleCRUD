@@ -12,15 +12,21 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.1.RELEASE</version>
+        <version>1.4.4.RELEASE</version>
     </parent>
 
     <dependencies>
 		<!-- Web dependency -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+         <dependency>  
+		      <groupId>org.springframework.boot</groupId>  
+		      <artifactId>spring-boot-starter-web</artifactId>  
+		           <exclusions> 
+		                <exclusion>                           
+		                     <groupId>ch.qos.logback</groupId>  
+		                     <artifactId>logback-classic</artifactId>  
+		                </exclusion>  
+		           </exclusions>  
+		 </dependency> 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -53,28 +59,10 @@
 			<scope>runtime</scope>
 		</dependency>
 		<!-- MariaDB -->
- 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<!-- Test dependency -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.jayway.jsonpath</groupId>
-            <artifactId>json-path</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <!-- Log Dependency -->
-        <dependency>
-		    <groupId>log4j</groupId>
-		    <artifactId>log4j</artifactId>
-		    <version>1.2.17</version>
-		</dependency>
+		<dependency>
+	      <groupId>org.mariadb.jdbc</groupId>
+	      <artifactId>mariadb-java-client</artifactId>
+	    </dependency>
     </dependencies>
 
     <properties>
@@ -82,12 +70,25 @@
     </properties>
 
     <build>
-    	<finalName>${artifactId}</finalName>
+    	<finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>  
+			     <groupId>org.apache.maven.plugins</groupId>  
+			     <artifactId>maven-war-plugin</artifactId>  
+			     <configuration>  
+			        <webResources>  
+			         <resource>  
+			           <directory>${project.basedir}/WEB-INF</directory>  
+			           <targetPath>WEB-INF</targetPath>  
+			           <include>jboss-deployment-structure.xml</include>  
+			          </resource>  
+			        </webResources>  
+			     </configuration>  
+			 </plugin>
         </plugins>
     </build>
 </project>
