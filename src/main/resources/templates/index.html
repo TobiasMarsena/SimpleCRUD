@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Edit Student</title>
+	<title>CRUD</title>
 	<meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -15,16 +15,9 @@ xmlns:th="http://www.thymeleaf.org">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container">
-	  <h1>Update Student</h1>
-	  <form action="#" th:action="@{/api/student/{id}(id=${student.id})}" th:object="${student}" method="POST">
-		   	<div class="form-group">
-			   	<label for="name">Name</label>
-			   	<input class="form-control" type="text" th:field="*{firstName}" id="name" placeholder="${student.firstName}"></input>
-				<input name="_method" type="hidden" value="PUT"></input>
-				<input class="btn btn-info" type="submit" value="Edit Student"></input>
-			</div>
-	  </form>
+	<div class="container-fluid">
+		<div class="h1">Hello CRUD</div>
+		<a class="btn" th:href="@{/home}">Start</a>
 	</div>
 </body>
 </html>

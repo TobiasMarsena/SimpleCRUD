@@ -1,33 +1,59 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Home</title>
+	<title>Home</title>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}"/>	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <div th:switch="${students}">
-	    <h2 th:case="null">No students yet!</h2>
-	    <div th:case="*">
-            <h2>Students</h2>
-            <table>
+  <div class="container-fluid" th:switch="${students}">
+	    <div class="h2" th:case="null">No students yet!</div>
+	    <div class="table-wrapper" th:case="*">
+            <div class="table-title">
+            	<div class="row">
+            		<div class="col-sm-6">
+            			<h2><b>Students</b></h2>
+            		</div>
+            		<div class="col-sm-6">
+           			    <a class="btn btn-success" th:href="@{/student/signup}">
+           			    	<i class="material-icons">&#xE147;</i><span>Add a new Student</span>
+         			    </a>	
+            		</div>
+           		</div>
+        	</div>
+            <table class="table table-striped table-hover">
                 <thead>
                     <tr>
                     	<th>Id</th>
                         <th>Name</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                 <tr th:each="student : ${students}">
                 	<td th:text="${student.id}"></td>
                     <td th:text="${student.firstName}"></td>
-                    <td><a th:href="@{/student/edit/{id}(id=${student.id})}">Edit</a></td>
-                    <td><a th:href="@{/student/delete/{id}(id=${student.id})}">Delete</a></td>
+                    <td>
+                    	<a class="edit" th:href="@{/student/edit/{id}(id=${student.id})}">
+                    		<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                    	</a>
+                    	<a class="delete" th:href="@{/student/delete/{id}(id=${student.id})}">
+                    		<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                    	</a>
+                    </td>
                 </tr>
             	</tbody>
         	</table>
     </div>      
-    <p><a th:href="@{/student/signup}">Add a new Student</a></p>
 	</div>
 </body>
 </html>
