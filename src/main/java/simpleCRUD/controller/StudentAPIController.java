@@ -31,7 +31,7 @@ public class StudentAPIController {
 	public String createStudent(
 			@RequestParam String firstName) {
 		studentServices.createStudent(firstName);
-		return "redirect:/";
+		return "redirect:/home";
 	}
 	@GetMapping(path="/student/{id}")
 	public @ResponseBody Student getStudent(
@@ -44,17 +44,17 @@ public class StudentAPIController {
 			@RequestParam String firstName) {
 		studentServices.updateStudent(id, firstName);
 		model.addAttribute("students", studentServices.getAllStudent());
-		return "redirect:/";
+		return "redirect:/home";
 	}
 	@DeleteMapping(path="/student/{id}")
 	public String deleteStudent(
 			@PathVariable long id) {
 		studentServices.deleteStudent(id);
-		return "redirect:/";
+		return "redirect:/home";
 	}
 	@DeleteMapping(path="/student")
 	public String deleteAllStudent() {
 		studentServices.deleteAllStudent();
-		return "redirect:/";
+		return "redirect:/home";
 	}
 }

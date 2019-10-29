@@ -7,7 +7,7 @@
 	<form action="#" th:action="@{/api/student/{id}(id=${student.id})}" method="POST">
 		<h1>Delete User</h1>
 		<h3 th:inline="text">Are you sure want to delete [[${student.firstName}]]?</h3>
-		<a type="button" href="/">No</a>
+		<a type="button" href="/home">No</a>
 		<input name="_method" type="hidden" value="DELETE"></input>
     	<input type="submit" value="Yes"></input>
 	</form>

@@ -89,7 +89,7 @@
 			     <configuration>  
 			        <webResources>  
 			         <resource>  
-			           <directory>${project.basedir}/WEB-INF</directory>  
+			           <directory>${project.basedir}/src/main/webapp/WEB-INF</directory>  
 			           <targetPath>WEB-INF</targetPath>  
 			           <include>jboss-deployment-structure.xml</include>  
 			          </resource>  

@@ -13,10 +13,10 @@ public class MainController {
 	@Autowired
 	private StudentServices studentServices;
 	
-	@GetMapping("/")
+	@GetMapping("/home")
 	public String home(Model model) {
 		model.addAttribute("students", studentServices.getAllStudent());
-		return "index";
+		return "home";
 	}
 	
 }
