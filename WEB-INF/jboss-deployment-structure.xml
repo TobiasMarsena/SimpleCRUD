@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jboss-deployment-structure>
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.1">
    <deployment>
-     <exclusions>
-       <module name="javaee.api" />  
-     
+     <exclusions>     
        <module name="org.jboss.logging" />
-       <module name="javax.persistence.api" />  
      </exclusions> 
      <dependencies>  
        <!-- WFCORE-209 workaround -->  
@@ -21,7 +18,7 @@
        <module name="javax.jws.api" export="true"/>  
        <module name="javax.mail.api" export="true"/>  
        <module name="javax.management.j2ee.api" export="true"/>  
-       <!-- <module name="javax.persistence.api" export="true"/> -->  
+       <module name="javax.persistence.api" export="true"/> 
        <module name="javax.resource.api" export="true"/>  
        <module name="javax.rmi.api" export="true"/>  
        <module name="javax.security.auth.message.api" export="true"/>  
