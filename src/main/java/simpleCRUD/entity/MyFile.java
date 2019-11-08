@@ -2,22 +2,27 @@ package simpleCRUD.entity;
 
 import java.util.Arrays;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "myfiles")
 public class MyFile {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	@Column(name = "filename")
 	private String filename;
 	
 	@Lob
+	@Column(name = "data")
 	private byte[] data;
 	
 	public MyFile() {}
