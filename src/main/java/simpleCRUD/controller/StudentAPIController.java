@@ -17,28 +17,28 @@ import simpleCRUD.service.StudentServices;
 
 
 @Controller
-@RequestMapping(path = "/api")
+@RequestMapping(path = "/api/student")
 public class StudentAPIController {
 
 	@Autowired
 	private StudentServices studentServices;
 	
-	@GetMapping(path="/student")
+	@GetMapping(path="/")
 	public @ResponseBody Iterable<Student> getAllStudent() {
 		return studentServices.getAllStudent();
 	}
-	@PostMapping(path="/student")
+	@PostMapping(path="/")
 	public String createStudent(
 			@RequestParam String firstName) {
 		studentServices.createStudent(firstName);
 		return "redirect:/home";
 	}
-	@GetMapping(path="/student/{id}")
+	@GetMapping(path="/{id}")
 	public @ResponseBody Student getStudent(
 			@PathVariable long id) {
 		return studentServices.getStudent(id);
 	}
-	@PutMapping(path="/student/{id}")
+	@PostMapping(path="/{id}")
 	public String updateStudent(Model model,
 			@PathVariable long id, 
 			@RequestParam String firstName) {
@@ -46,13 +46,13 @@ public class StudentAPIController {
 		model.addAttribute("students", studentServices.getAllStudent());
 		return "redirect:/home";
 	}
-	@DeleteMapping(path="/student/{id}")
+	@PostMapping(path="/delete/{id}")
 	public String deleteStudent(
 			@PathVariable long id) {
 		studentServices.deleteStudent(id);
 		return "redirect:/home";
 	}
-	@DeleteMapping(path="/student")
+	@PostMapping(path="/delete")
 	public String deleteAllStudent() {
 		studentServices.deleteAllStudent();
 		return "redirect:/home";

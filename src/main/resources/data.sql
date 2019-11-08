@@ -8,6 +8,8 @@ INSERT INTO students (first_name) VALUES
 	('Fauzi'),
 	('Dante'),
 	('Andre');
+INSERT INTO users (username, password, role) VALUES
+	('user', 'redhat123', 'USER');
 INSERT INTO teachers (name) VALUES
 	('Angelia'),
 	('Steva'),

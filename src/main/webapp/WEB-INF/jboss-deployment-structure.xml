@@ -4,8 +4,9 @@
      <exclusions>     
        <module name="org.jboss.logging" />
      </exclusions> 
-     <dependencies>  
-       <!-- WFCORE-209 workaround -->  
+     <!-- <dependencies>  
+       <module name="org.springframework.spring" export="true" meta-inf="export"/>
+       WFCORE-209 workaround  
        <module name="javax.activation.api" export="true"/>  
        <module name="javax.annotation.api" export="true"/>  
        <module name="javax.ejb.api" export="true"/>  
@@ -32,8 +33,8 @@
        <module name="javax.xml.registry.api" export="true"/>  
        <module name="javax.xml.soap.api" export="true"/>  
        <module name="javax.xml.ws.api" export="true"/>  
-       <!-- This one always goes last. -->  
-       <module name="javax.api" export="true"/>  
-     </dependencies>
+       This one always goes last.  
+       <module name="javax.api" export="true"/>
+     </dependencies> -->
    </deployment>   
  </jboss-deployment-structure> 

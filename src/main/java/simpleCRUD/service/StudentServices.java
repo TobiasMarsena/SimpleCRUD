@@ -1,5 +1,7 @@
 package simpleCRUD.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +21,9 @@ public class StudentServices {
 		return newStudent.getId();
 	}
 	public Student getStudent(Long id) {
-		if (studentRepository.exists(id)) {
-			Student student = studentRepository.findOne(id);
-			return student;
+		if (studentRepository.existsById(id)) {
+			Optional<Student> student = studentRepository.findById(id);
+			return student.get();
 		} else {
 			// No such Student exist
 			return null;
@@ -31,15 +33,16 @@ public class StudentServices {
 		return studentRepository.findAll();
 	}
 	public long updateStudent(long id, String firstName) {
-		Student existingStudent = studentRepository.findOne(id);
+		Student existingStudent = studentRepository.findById(id).get();
 		existingStudent.setFirstName(firstName);
 		studentRepository.save(existingStudent);
 		return existingStudent.getId();
 	}
 	public String deleteStudent(long id) {
-		if (studentRepository.exists(id)) {
-			String name = studentRepository.findOne(id).getFirstName();
-			studentRepository.delete(studentRepository.findOne(id));
+		if (studentRepository.existsById(id)) {
+			Student student = studentRepository.findById(id).get();
+			String name = student.getFirstName();
+			studentRepository.delete(student);
 			return name;
 		} else {
 			return "Student not Found";

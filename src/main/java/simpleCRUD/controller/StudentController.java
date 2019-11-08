@@ -32,18 +32,18 @@ public class StudentController {
 			@PathVariable long id,
 			Model model) {
 		model.addAttribute("student", studentServices.getStudent(id));
-		return "editStudent";
+		return "student/editStudent";
 	}
 	@GetMapping(path = "/delete/{id}")
 	public String deleteStudent(
 			@PathVariable long id,
 			Model model) {
 		model.addAttribute("student", studentServices.getStudent(id));
-		return "deleteWarning";
+		return "student/deleteWarning";
 	}
 	@GetMapping(path = "/signup")
 	public String createStudent(Model model) {
 		model.addAttribute("student", new Student());
-		return "createStudent";
+		return "student/createStudent";
 	}
 }
